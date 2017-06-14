@@ -1,8 +1,9 @@
+// random password
+
 function generateABC(){
 	var abc = [],
 		abc1 = [],
 		numbers = [],
-		password = '',
 		n;
 
 	for (var i = 97; i <= 122; i++){
@@ -36,4 +37,26 @@ function generatePassword(){
 		}
 	}
 	console.log(password);
+}
+
+//array of even numbers
+
+function evenNumber(number){
+	if (number % 2 == 0) {
+		return true
+	} else {
+		return false
+	}
+}
+
+var arr1 = [3, 13, 74, 14, 66, 15, 22, 4, 12, 23, 185, 249, 248, 4815, 23466],
+	resultArr = [];
+
+function ArrayOfEven(arr) {
+	for (var i = 0; i < arr.length; i++){
+		if (evenNumber(arr[i])){
+			resultArr.push(arr[i])
+		}
+	}
+	console.log(resultArr);
 }
