@@ -60,3 +60,26 @@ function ArrayOfEven(arr) {
 	}
 	console.log(resultArr);
 }
+
+// 
+
+function someNumbers(){
+	var i,
+	k,
+	sumI = 0,
+	result = [];
+
+	for (i = 0; i <= 1000; i++){
+		var splitI = i.toString().split('');
+
+		for (k = 0; k < splitI.length; k++){
+			sumI += parseInt(splitI[k], 10);
+		}
+
+		if (i % 3 == 0 && i % 5 !== 0 && sumI < 10){
+			result.push(i);			
+		}	
+		sumI = 0;
+	}
+	console.log(result);
+}
