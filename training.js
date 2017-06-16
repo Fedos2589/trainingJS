@@ -61,7 +61,7 @@ function ArrayOfEven(arr) {
 	console.log(resultArr);
 }
 
-// 
+// interview task
 
 function someNumbers(){
 	var i,
