@@ -1,5 +1,5 @@
 //drag
-
+/*
 var wrap = document.querySelector('.wrap'),
 	block = document.querySelector('.block'),
 	allowDrag = false,
@@ -20,7 +20,7 @@ var wrap = document.querySelector('.wrap'),
 			blockWidth : blockRect.width,
 			blockHeight : blockRect.height,
 		};
-		
+
 		coords.wrap = {
 			offsetLeft : wrapRect.left,
 			offsetTop : wrapRect.top,
@@ -59,5 +59,52 @@ var wrap = document.querySelector('.wrap'),
 		allowDrag = false;
 
 	});
+*/
 
+//painted blocks
+
+(function(){
+	var numberInput = document.querySelector('.number__input'),
+		colorInput = document.querySelector('.color__input'),
+		container = document.querySelector('.container'),
+		isOdd = true;
+
+	numberInput.addEventListener('input', function(){
+		var value = this.value,
+			blocksHTML = '';
+		
+
+		for (var i = 0; i < value; i++){
+			var block = document.createElement('div');
+			block.className = 'block__item';
+			block.innerText = i + 1; 
+			blocksHTML += block.outerHTML;
+		}
+
+		container.innerHTML = blocksHTML;
+	})
+
+	colorInput.addEventListener('change', function(){
+		var colorValue = this.value,
+			elems = container.children;
+
+		if (isOdd){
+			isOdd = false;
+		} else{
+			isOdd = true;
+		}
+
+		for (var i=0; i<elems.length; i++){
+
+			if (isOdd && i % 2 == 0){
+				elems[i].style.background = colorValue;
+			}
+
+			if (!isOdd && i % 2 !== 0){
+				elems[i].style.background = colorValue;
+			}
+		}
+		console.log(colorValue);
+	})
+}());
 
