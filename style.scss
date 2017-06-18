@@ -106,3 +106,13 @@
 	-ms-align-items: center;
 	align-items: center;
 }
+
+.game__item_black{
+	background-color: black;
+	font-size: 0;
+
+}
+
+.game__item_active{
+	border-color: white;
+}

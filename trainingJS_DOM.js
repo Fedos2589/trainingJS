@@ -108,3 +108,54 @@ var wrap = document.querySelector('.wrap'),
 	})
 }());
 
+//game
+
+(function(){
+	var game = document.querySelector('.game'),
+		numArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+		arrLength = numArray.length;
+	var	blackDot;
+
+	for (var i = 0; i < arrLength; i++){
+		var randomInt = getRandomInt(0, numArray.length);
+		createBlock(numArray[randomInt]);
+		numArray.splice(randomInt,1);
+	}
+
+	createBlock('', 'game__item_black');
+
+	function createBlock(text, additionClass){
+		var GameBlock = document.createElement('div');
+
+		GameBlock.className = 'game__item';
+
+		if (additionClass){
+			GameBlock.classList.add(additionClass);
+		}
+
+		GameBlock.innerText = text;
+
+		game.appendChild(GameBlock);
+	}
+
+	game.addEventListener('click', function(e){
+		var elem = e.target;
+
+		if (elem.className == 'game__item'){
+			if (blackDot.classList.contains('game__item_active')){
+				blackDot.innerText = elem.innerText,
+				blackDot.classList.remove('game__item_black', 'game__item_active'),
+				elem.classList.add('game__item_black');
+			}
+		}
+
+		if (elem.classList.contains('game__item_black')){
+			elem.classList.toggle('game__item_active'),
+			blackDot = elem;
+		}
+	})
+
+	function getRandomInt(min, max) {
+	  return Math.floor(Math.random() * (max - min)) + min;
+	}
+}());
