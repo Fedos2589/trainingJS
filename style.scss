@@ -116,3 +116,17 @@
 .game__item_active{
 	border-color: white;
 }
+
+.parent{
+	margin-top: 100px;
+	width: 420px;
+	height: 210px;
+	background-color: green;
+}
+
+.child{
+	width: 100%;
+	height: 100%;
+	padding-top: 10%;
+	background-color: blue;
+}
